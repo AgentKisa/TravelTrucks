@@ -30,24 +30,105 @@ const CamperCard = ({ camper }) => {
         className={styles.image}
       />
       <div className={styles.info}>
-        <h3>{camper.name}</h3>
-        <p>Location: {camper.location}</p>
-        <p>Price: €{camper.price}</p>
-        <p>Rating: {camper.rating} ★</p>
-        <div className={styles.features}>
-          <span>{camper.engine}</span>
-          {camper.AC && <span>AC</span>}
+        <div className={styles.header}>
+          <h3 className={styles.name}>{camper.name}</h3>
+          <div className={styles.footer}>
+            <p className={styles.price}>€{camper.price}</p>
+            <button
+              className={styles.favoriteButton}
+              onClick={handleToggleFavorite}
+            >
+              {isFavorite ? (
+                <svg width="26" height="24">
+                  <use href="/sprite.svg#icon-heart2"></use>
+                </svg>
+              ) : (
+                <svg width="26" height="24">
+                  <use href="/sprite.svg#icon-heart"></use>
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
-        <button
-          className={styles.favoriteButton}
-          onClick={handleToggleFavorite}
-        >
-          {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+        <div className={styles.location}>
+          <div className={styles.rating}>
+            <svg width="16" height="16">
+              <use href="/sprite.svg#icon-star"></use>
+            </svg>
+            {camper.rating} ({camper.reviews.length} Reviews)
+          </div>
+          <div>
+            <svg className={styles.icon} width="16" height="16">
+              <use href="/sprite.svg#icon-map"></use>
+            </svg>
+            {camper.location}
+          </div>
+        </div>
+        <p className={styles.description}>{camper.description}</p>
+        <ul className={styles.features}>
+          {camper.transmission === "automatic" && (
+            <li className={styles.featureItom}>
+              <svg className={styles.icon} width="20" height="20">
+                <use href="/sprite.svg#icon-avtom"></use>
+              </svg>
+              Automatic
+            </li>
+          )}
+          {camper.engine === "petrol" && (
+            <li className={styles.featureItom}>
+              <svg className={styles.icon} width="20" height="20">
+                <use href="/sprite.svg#icon-petrol"></use>
+              </svg>
+              Petrol
+            </li>
+          )}
+          {camper.kitchen && (
+            <li className={styles.featureItom}>
+              {" "}
+              <svg className={styles.icon} width="20" height="20">
+                <use href="/sprite.svg#icon-Group"></use>
+              </svg>
+              Kitchen
+            </li>
+          )}
+          {camper.AC && (
+            <li className={styles.featureItom}>
+              {" "}
+              <svg className={styles.icon} width="20" height="20">
+                <use href="/sprite.svg#icon-ac"></use>
+              </svg>
+              AC
+            </li>
+          )}
+          {camper.radio === true && (
+            <li className={styles.featureItom}>
+              <svg className={styles.icon} width="20" height="20">
+                <use href="/sprite.svg#icon-ui-radios"></use>
+              </svg>
+              Radio
+            </li>
+          )}
+          {camper.TV === true && (
+            <li className={styles.featureItom}>
+              <svg className={styles.icon} width="20" height="20">
+                <use href="/sprite.svg#icon-tv"></use>
+              </svg>
+              TV
+            </li>
+          )}
+          {camper.bathroom === true && (
+            <li className={styles.featureItom}>
+              <svg className={styles.icon} width="20" height="20">
+                <use href="/sprite.svg#icon-badrom"></use>
+              </svg>
+              Bathroom
+            </li>
+          )}
+        </ul>
+        <button className={styles.showMore} onClick={handleShowMore}>
+          Show more
         </button>
       </div>
-      <button className={styles.showMore} onClick={handleShowMore}>
-        Show more
-      </button>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 .filters {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    gap: 32px;
+    min-width: 424px;
 
 }
 
@@ -25,55 +25,35 @@
     border-color: #F7F7F7;
 }
 
-.checkbox,
-.radio {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    /* color: #344054; */
-}
 
 .checkbox input[type="checkbox"],
 .radio input[type="radio"] {
     display: none;
 }
 
-.customCheckbox,
-.customRadio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #d0d5dd;
-    border-radius: 4px;
-    /* Для чекбоксов */
-    background-color: #fff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
+
 
 .radio .customRadio {
     border-radius: 50%;
     /* Круглая форма для радиокнопок */
 }
 
-.checkbox input[type="checkbox"]:checked+.customCheckbox,
-.radio input[type="radio"]:checked+.customRadio {
-    /* background-color: #4f46e5;
-    border-color: #4f46e5; */
-}
 
 .searchButton {
     padding: 12px 20px;
-    background-color: #e63946;
     color: #fff;
     font-size: 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 200px;
+    background: var(--Button, #E44848);
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 166px;
+    height: 56px;
+    ;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 .searchButton:hover {
@@ -94,12 +74,8 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
-    margin-bottom: 30px;
 }
 
-.locationFilter {
-    margin-bottom: 40px;
-}
 
 .filterTitle {
     color: var(--Main, #101828);
@@ -107,10 +83,71 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 1.2;
+    margin-bottom: 24px;
 }
 
 .icon {
-    stroke-width: 1px;
-    stroke: #DADDE1;
-    fill: #DADDE1;
+    width: 360px;
+    margin-bottom: 24px;
+}
+
+.icon2 {
+}
+
+
+.checkboxLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 112px;
+    height: 96px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    border: 1px solid var(--Gray-light, #DADDE1);
+    transition: border-color 0.3s ease;
+    padding-top: 5px;
+}
+
+.checkboxInput {
+    display: none;
+}
+
+.checkboxIcon {
+    fill: black;
+    transition: fill 0.3s ease;
+}
+
+.checkboxText {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.005em;
+    text-align: center;
+    color: rgb(16, 24, 40);
+}
+
+.checkboxLabel.active {
+    border-color: red;
+}
+
+.checkboxLabel.active .checkboxIcon {}
+
+.filterList {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+    gap: 8px;
+    margin: 0px;
+    width: 360px;
+}
+
+.radioGroup {
+    margin-bottom: 10px;
+}
+
+.locationFilter {
+    position: relative; 
 }

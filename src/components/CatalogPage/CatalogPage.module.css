@@ -1,5 +1,5 @@
 .catalogPage {
-    padding: 20px;
+    padding: 64px;
     background-color: white;
     color: #333;
     font-family: Arial, sans-serif;
@@ -26,22 +26,29 @@
 }
 
 .campersList {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .loadMore {
     display: block;
-    margin: 20px auto;
+    margin: 20px;
+    margin-left: 850px;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    background-color: transparent;
+    color: black;
+    border-radius: 200px;
     font-size: 16px;
     cursor: pointer;
+    border: 1px solid var(--Gray-light, #DADDE1);
     transition: background-color 0.3s;
+    width: 145px;
+    height: 55px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.08px;
+
 }
 
 .loadMore:hover {
