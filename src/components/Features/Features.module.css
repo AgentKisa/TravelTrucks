@@ -1,0 +1,35 @@
+.features {
+    background-color: #f9f9f9;
+    /* Светлый фон для контраста */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.features h3 {
+    font-size: 1.5rem;
+    color: #333;
+    /* Темный текст */
+    margin-bottom: 10px;
+}
+
+.features ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features li {
+    font-size: 1rem;
+    color: #555;
+    /* Слегка затемненный текст */
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    /* Разделители между строками */
+}
+
+.features li:last-child {
+    border-bottom: none;
+    /* Убираем разделитель у последнего элемента */
+}

@@ -25,17 +25,17 @@ const CatalogPage = () => {
 
   return (
     <div className={styles.catalogPage}>
-      <Filters />
-      <div className={styles.campersList}>
-        {/* {error && <p className={styles.error}>Error: {error}</p>} */}
-
-        {campers.length === 0 && !isLoading && !hasMore ? (
-          <p className={styles.notFound}>Not found!</p>
-        ) : (
-          campers.map((camper, index) => (
-            <CamperCard key={`${camper.id}-${index}`} camper={camper} />
-          ))
-        )}
+      <div className={styles.page}>
+        <Filters />
+        <div className={styles.campersList}>
+          {campers.length === 0 && !isLoading && !hasMore ? (
+            <p className={styles.notFound}>Not found!</p>
+          ) : (
+            campers.map((camper, index) => (
+              <CamperCard key={`${camper.id}-${index}`} camper={camper} />
+            ))
+          )}
+        </div>
       </div>
       {hasMore && campers.length > 0 && (
         <button onClick={handleLoadMore} className={styles.loadMore}>
@@ -43,7 +43,6 @@ const CatalogPage = () => {
         </button>
       )}
       {isLoading && campers.length === 0 && <p>Loading...</p>}
-      {/* {error && <p>Error: {error}</p>} */}
     </div>
   );
 };

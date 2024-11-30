@@ -1,27 +1,116 @@
-/* Filters.module.css */
 .filters {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+}
+
+.filterInput {
+    display: flex;
+    width: 360px;
+    height: 56px;
+    padding: 0px 0px 0px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     gap: 10px;
-    margin-bottom: 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #F7F7F7;
 }
 
-.filterInput,
-.filterSelect {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.filterInput:focus {
+    outline: #F7F7F7;
+    border-color: #F7F7F7;
 }
 
-label {
+.checkbox,
+.radio {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    /* color: #344054; */
 }
 
-.radioGroup {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+.checkbox input[type="checkbox"],
+.radio input[type="radio"] {
+    display: none;
+}
 
+.customCheckbox,
+.customRadio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d0d5dd;
+    border-radius: 4px;
+    /* Для чекбоксов */
+    background-color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.radio .customRadio {
+    border-radius: 50%;
+    /* Круглая форма для радиокнопок */
+}
+
+.checkbox input[type="checkbox"]:checked+.customCheckbox,
+.radio input[type="radio"]:checked+.customRadio {
+    /* background-color: #4f46e5;
+    border-color: #4f46e5; */
+}
+
+.searchButton {
+    padding: 12px 20px;
+    background-color: #e63946;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+    background-color: #d62839;
+}
+
+.location {
+    color: var(--Gray, #6C717B);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.filter {
+    color: #475467;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.locationFilter {
+    margin-bottom: 40px;
+}
+
+.filterTitle {
+    color: var(--Main, #101828);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.icon {
+    stroke-width: 1px;
+    stroke: #DADDE1;
+    fill: #DADDE1;
 }

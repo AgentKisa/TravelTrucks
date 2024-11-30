@@ -1,0 +1,44 @@
+.reviews {
+    background-color: #fefefe;
+    /* Нежный белый фон */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.reviews h3 {
+    font-size: 1.5rem;
+    color: #333;
+    /* Темный текст */
+    margin-bottom: 15px;
+}
+
+.review {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    /* Легкий бордер вокруг отзыва */
+    border-radius: 6px;
+    background-color: #fafafa;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review:hover {
+    transform: translateY(-5px);
+    /* Легкий подъем при наведении */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Подсветка при наведении */
+}
+
+.review p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.review span {
+    font-size: 0.9rem;
+    color: #777;
+    /* Серый цвет для дополнительной информации */
+}

@@ -3,13 +3,12 @@ import axios from "axios";
 
 const API_URL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers";
 
+// Асинхронное действие для получения списка кемперов (осталось без изменений)
 export const fetchCampers = createAsyncThunk(
   "campers/fetchCampers",
   async ({ filters = {}, page = 1 }, thunkAPI) => {
     try {
-      // Фильтруем параметры: добавляем только те, которые не равны false, null или undefined
       const params = new URLSearchParams();
-
       Object.keys(filters).forEach((key) => {
         if (
           filters[key] !== false &&
@@ -19,10 +18,8 @@ export const fetchCampers = createAsyncThunk(
           params.append(key, filters[key]);
         }
       });
-
       params.append("page", page);
-      params.append("limit", 4); // Максимум 4 элемента на страницу
-
+      params.append("limit", 4);
       const response = await axios.get(`${API_URL}?${params.toString()}`);
       return response.data;
     } catch (error) {
@@ -31,18 +28,33 @@ export const fetchCampers = createAsyncThunk(
   }
 );
 
+// Асинхронное действие для получения деталей кемпера по ID (осталось без изменений)
+export const fetchCamperById = createAsyncThunk(
+  "campers/fetchCamperById",
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`${API_URL}/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 const campersSlice = createSlice({
   name: "campers",
   initialState: {
     campers: [],
+    camperDetails: null,
     filters: {
       location: "",
     },
     isLoading: false,
+    isDetailsLoading: false,
     error: null,
     page: 1,
     hasMore: true,
+    favorites: JSON.parse(localStorage.getItem("favorites")) || [], // Загружаем из локального хранилища
   },
   reducers: {
     setFilter(state, action) {
@@ -53,6 +65,23 @@ const campersSlice = createSlice({
       state.page = 1;
       state.hasMore = true;
     },
+    clearCamperDetails(state) {
+      state.camperDetails = null;
+    },
+    addToFavorites(state, action) {
+      const camperId = action.payload.id;
+      if (!state.favorites.some((camper) => camper.id === camperId)) {
+        state.favorites.push(action.payload);
+        localStorage.setItem("favorites", JSON.stringify(state.favorites)); // Сохраняем в локальное хранилище
+      }
+    },
+    removeFromFavorites(state, action) {
+      const camperId = action.payload.id;
+      state.favorites = state.favorites.filter(
+        (camper) => camper.id !== camperId
+      );
+      localStorage.setItem("favorites", JSON.stringify(state.favorites)); // Сохраняем в локальное хранилище
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -62,31 +91,40 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.isLoading = false;
-
-        // API возвращает объект, извлекаем только items
         const campers = Array.isArray(action.payload?.items)
           ? action.payload.items
           : [];
-
-        // Если длина данных меньше 4, значит, данных больше нет
         state.hasMore = campers.length === 4;
-
-        // Добавляем новые данные
         state.campers = [...state.campers, ...campers];
-
-        // Увеличиваем номер страницы только если данные получены
         if (campers.length > 0) {
           state.page += 1;
         }
       })
-
       .addCase(fetchCampers.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || "Error fetching campers.";
-        state.hasMore = false; // Остановить дальнейшие запросы
+        state.hasMore = false;
+      })
+      .addCase(fetchCamperById.pending, (state) => {
+        state.isDetailsLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchCamperById.fulfilled, (state, action) => {
+        state.isDetailsLoading = false;
+        state.camperDetails = action.payload;
+      })
+      .addCase(fetchCamperById.rejected, (state, action) => {
+        state.isDetailsLoading = false;
+        state.error = action.error.message || "Error fetching camper details.";
       });
   },
 });
 
-export const { setFilter, resetCampers } = campersSlice.actions;
+export const {
+  setFilter,
+  resetCampers,
+  clearCamperDetails,
+  addToFavorites,
+  removeFromFavorites,
+} = campersSlice.actions;
 export default campersSlice.reducer;

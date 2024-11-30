@@ -1,9 +1,16 @@
 .catalogPage {
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: white;
     color: #333;
     font-family: Arial, sans-serif;
+
 }
+
+.page {
+    display: flex;
+}
+
+.catalogPage:not(:last-child) {}
 
 .title {
     font-size: 28px;
