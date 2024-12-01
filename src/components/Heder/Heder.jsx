@@ -8,7 +8,9 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link to="/">
-          <img src="public/img/Logo.jpg" alt="" className={styles.logoImage} />
+          <svg className={styles.logoImage} width="136" height="16">
+            <use href="/sprite.svg#icon-Logo"></use>
+          </svg>
         </Link>
       </div>
       <nav className={styles.nav}>

@@ -70,6 +70,38 @@ const Features = () => {
             Bathroom
           </li>
         )}
+        {camper.water === true && (
+          <li className={styles.featureItom}>
+            <svg className={styles.icon} width="20" height="20">
+              <use href="/sprite.svg#woter"></use>
+            </svg>
+            Water
+          </li>
+        )}
+        {camper.refrigerator === true && (
+          <li className={styles.featureItom}>
+            <svg className={styles.icon} width="20" height="20">
+              <use href="/sprite.svg#icon-solar-refreg"></use>
+            </svg>
+            Refrigerator
+          </li>
+        )}
+        {camper.microwave === true && (
+          <li className={styles.featureItom}>
+            <svg className={styles.icon} width="20" height="20">
+              <use href="/sprite.svg#microv"></use>
+            </svg>
+            Microwave
+          </li>
+        )}
+        {camper.gas === true && (
+          <li className={styles.featureItom}>
+            <svg className={styles.icon} width="20" height="20">
+              <use href="/sprite.svg#gas"></use>
+            </svg>
+            Gas
+          </li>
+        )}
       </ul>
       <h3 className={styles.sectionTitle}>Vehicle Details</h3>
       <div className={styles.divPalka}>

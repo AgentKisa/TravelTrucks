@@ -7,6 +7,7 @@ import {
   Routes,
   Route,
   NavLink,
+  useNavigate,
 } from "react-router-dom";
 import { fetchCamperById, clearCamperDetails } from "../../redux/campersSlice";
 import styles from "./CamperDetailsPage.module.css";
@@ -20,6 +21,7 @@ import { toast } from "react-hot-toast";
 const CamperDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     camperDetails: camper,
     isDetailsLoading: loading,
@@ -28,11 +30,12 @@ const CamperDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchCamperById(id));
+    navigate("features", { replace: true });
 
     return () => {
       dispatch(clearCamperDetails());
     };
-  }, [id, dispatch]);
+  }, [id, dispatch, navigate]);
 
   if (loading)
     return (
