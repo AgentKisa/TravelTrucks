@@ -75,7 +75,7 @@ const CamperDetailsPage = () => {
         </div>
       </div>
       <div className={styles.footer}>
-        <p className={styles.price}>€{camper.price}</p>
+        <p className={styles.price}>€{camper.price.toFixed(2)}</p>
       </div>
       <div className={styles.pictures}>
         {camper.gallery.map((image, index) => (

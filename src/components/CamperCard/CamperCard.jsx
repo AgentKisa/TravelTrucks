@@ -33,7 +33,8 @@ const CamperCard = ({ camper }) => {
         <div className={styles.header}>
           <h3 className={styles.name}>{camper.name}</h3>
           <div className={styles.footer}>
-            <p className={styles.price}>€{camper.price}</p>
+            <p className={styles.price}>€{camper.price.toFixed(2)}</p>
+
             <button
               className={styles.favoriteButton}
               onClick={handleToggleFavorite}
