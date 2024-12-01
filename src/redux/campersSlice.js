@@ -3,7 +3,6 @@ import axios from "axios";
 
 const API_URL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers";
 
-// Асинхронное действие для получения списка кемперов (осталось без изменений)
 export const fetchCampers = createAsyncThunk(
   "campers/fetchCampers",
   async ({ filters = {}, page = 1 }, thunkAPI) => {
@@ -28,7 +27,6 @@ export const fetchCampers = createAsyncThunk(
   }
 );
 
-// Асинхронное действие для получения деталей кемпера по ID (осталось без изменений)
 export const fetchCamperById = createAsyncThunk(
   "campers/fetchCamperById",
   async (id, thunkAPI) => {
@@ -54,7 +52,7 @@ const campersSlice = createSlice({
     error: null,
     page: 1,
     hasMore: true,
-    favorites: JSON.parse(localStorage.getItem("favorites")) || [], // Загружаем из локального хранилища
+    favorites: JSON.parse(localStorage.getItem("favorites")) || [],
   },
   reducers: {
     setFilter(state, action) {
@@ -72,7 +70,7 @@ const campersSlice = createSlice({
       const camperId = action.payload.id;
       if (!state.favorites.some((camper) => camper.id === camperId)) {
         state.favorites.push(action.payload);
-        localStorage.setItem("favorites", JSON.stringify(state.favorites)); // Сохраняем в локальное хранилище
+        localStorage.setItem("favorites", JSON.stringify(state.favorites));
       }
     },
     removeFromFavorites(state, action) {
@@ -80,7 +78,7 @@ const campersSlice = createSlice({
       state.favorites = state.favorites.filter(
         (camper) => camper.id !== camperId
       );
-      localStorage.setItem("favorites", JSON.stringify(state.favorites)); // Сохраняем в локальное хранилище
+      localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
   },
   extraReducers: (builder) => {

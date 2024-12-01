@@ -101,12 +101,9 @@
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 1;
-    /* Ограничиваем количество строк до 1 */
     -webkit-box-orient: vertical;
     overflow: hidden;
-    /* Скрываем текст, выходящий за пределы */
     text-overflow: ellipsis;
-    /* Добавляем многоточие */
 }
 
 .features {

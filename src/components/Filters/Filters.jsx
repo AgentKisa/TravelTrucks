@@ -67,6 +67,29 @@ const Filters = () => {
           <li>
             <label
               className={`${styles.checkboxLabel} ${
+                filters.transmission === "automatic" ? styles.active : ""
+              }`}
+            >
+              <input
+                type="checkbox"
+                className={styles.checkboxInput}
+                checked={filters.transmission === "automatic"}
+                onChange={(e) =>
+                  handleFilterChange(
+                    "transmission",
+                    e.target.checked ? "automatic" : null
+                  )
+                }
+              />
+              <svg className={styles.checkboxIcon} width="32" height="32">
+                <use href="/sprite.svg#icon-avtom"></use>
+              </svg>
+              <p className={styles.checkboxText}>Automatic</p>
+            </label>
+          </li>
+          <li>
+            <label
+              className={`${styles.checkboxLabel} ${
                 filters.kitchen ? styles.active : ""
               }`}
             >
@@ -122,29 +145,6 @@ const Filters = () => {
               <p className={styles.checkboxText}>Bathroom</p>
             </label>
           </li>
-          <li>
-            <label
-              className={`${styles.checkboxLabel} ${
-                filters.transmission === "automatic" ? styles.active : ""
-              }`}
-            >
-              <input
-                type="checkbox"
-                className={styles.checkboxInput}
-                checked={filters.transmission === "automatic"}
-                onChange={(e) =>
-                  handleFilterChange(
-                    "transmission",
-                    e.target.checked ? "automatic" : null
-                  )
-                }
-              />
-              <svg className={styles.checkboxIcon} width="32" height="32">
-                <use href="/sprite.svg#icon-avtom"></use>
-              </svg>
-              <p className={styles.checkboxText}>Automatic</p>
-            </label>
-          </li>
         </ul>
       </div>
       <div className={styles.radioGroup}>
@@ -158,27 +158,28 @@ const Filters = () => {
           <li>
             <label
               className={`${styles.checkboxLabel} ${
-                filters.form === "alcove" ? styles.active : ""
+                filters.form === "panelTruck" ? styles.active : ""
               }`}
             >
               <input
                 type="checkbox"
-                value="alcove"
+                value="panelTruck"
                 className={styles.checkboxInput}
-                checked={filters.form === "alcove"}
+                checked={filters.form === "panelTruck"}
                 onChange={() =>
                   handleFilterChange(
                     "form",
-                    filters.form === "alcove" ? null : "alcove"
+                    filters.form === "panelTruck" ? null : "panelTruck"
                   )
                 }
               />
               <svg className={styles.checkboxIcon} width="32" height="32">
-                <use href="/sprite.svg#icon-bi-alcove"></use>
+                <use href="/sprite.svg#icon-bi-van"></use>
               </svg>
-              <p className={styles.checkboxText}>Alcove</p>
+              <p className={styles.checkboxText}>Van</p>
             </label>
           </li>
+
           <li>
             <label
               className={`${styles.checkboxLabel} ${
@@ -208,25 +209,25 @@ const Filters = () => {
           <li>
             <label
               className={`${styles.checkboxLabel} ${
-                filters.form === "panelTruck" ? styles.active : ""
+                filters.form === "alcove" ? styles.active : ""
               }`}
             >
               <input
                 type="checkbox"
-                value="panelTruck"
+                value="alcove"
                 className={styles.checkboxInput}
-                checked={filters.form === "panelTruck"}
+                checked={filters.form === "alcove"}
                 onChange={() =>
                   handleFilterChange(
                     "form",
-                    filters.form === "panelTruck" ? null : "panelTruck"
+                    filters.form === "alcove" ? null : "alcove"
                   )
                 }
               />
               <svg className={styles.checkboxIcon} width="32" height="32">
-                <use href="/sprite.svg#icon-bi-van"></use>
+                <use href="/sprite.svg#icon-bi-alcove"></use>
               </svg>
-              <p className={styles.checkboxText}>Van</p>
+              <p className={styles.checkboxText}>Alcove</p>
             </label>
           </li>
         </ul>
