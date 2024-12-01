@@ -4,6 +4,7 @@ import { fetchCampers, resetCampers } from "../../redux/campersSlice";
 import CamperCard from "../CamperCard/CamperCard";
 import Filters from "../Filters/Filters";
 import styles from "./CatalogPage.module.css";
+import { DNA } from "react-loader-spinner";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -39,10 +40,32 @@ const CatalogPage = () => {
       </div>
       {hasMore && campers.length > 0 && (
         <button onClick={handleLoadMore} className={styles.loadMore}>
-          {isLoading ? "Loading..." : "Load more"}
+          {isLoading ? (
+            <DNA
+              visible={true}
+              height="100"
+              width="100"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+              wrapperClass="dna-wrapper"
+            />
+          ) : (
+            "Load more"
+          )}
         </button>
       )}
-      {isLoading && campers.length === 0 && <p>Loading...</p>}
+      {isLoading && campers.length === 0 && (
+        <p className={styles.loaderContainer}>
+          <DNA
+            visible={true}
+            height="100"
+            width="100"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        </p>
+      )}
     </div>
   );
 };

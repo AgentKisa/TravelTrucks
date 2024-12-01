@@ -1,44 +1,81 @@
 .reviews {
-    background-color: #fefefe;
-    /* Нежный белый фон */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    background-color: #ffffff;
+    max-width: 631px;
 }
 
 .reviews h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #333;
     /* Темный текст */
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f2f2f2;
+    padding-bottom: 10px;
 }
 
 .review {
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    /* Легкий бордер вокруг отзыва */
-    border-radius: 6px;
-    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    margin-bottom: 44px;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .review:hover {
     transform: translateY(-5px);
-    /* Легкий подъем при наведении */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    /* Подсветка при наведении */
 }
 
-.review p {
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #F2F4F7;
+    color: var(--Button, #E44848);
+    border-radius: 50%;
+}
+
+.name {
+    color: var(--Main, #101828);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 4px;
+}
+
+.rating {
     font-size: 1rem;
-    color: #444;
-    margin-bottom: 8px;
+    fill: #f1c40f;
+    stroke: #f1c40f;
+    /* Желтый для звёзд */
 }
 
-.review span {
-    font-size: 0.9rem;
-    color: #777;
-    /* Серый цвет для дополнительной информации */
+.starFilled {
+    fill: #f1c40f;
+    stroke: #f1c40f;
+    /* Заполненная звезда */
+}
+
+.starEmpty {
+    fill: #ddd;
+    stroke: #fff;
+    /* Пустая звезда */
+}
+
+.comment {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0px;
 }

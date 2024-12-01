@@ -52,5 +52,12 @@
 }
 
 .loadMore:hover {
-    background-color: #0056b3;
+    border: 1px solid var(--Gray-light, red);
+}
+
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
 }

@@ -1,35 +1,100 @@
+.featuresIcon {
+    max-width: 631px;
+    border-radius: 10px;
+    background: var(--Inputs, #F7F7F7);
+    padding: 44px 52px;
+}
+
+
+.sectionTitle {
+    color: var(--Main, #101828);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    width: 145px;
+}
+
+
+.featureItom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    padding: 12px 18px;
+    background: #F2F4F7;
+    max-width: 143px;
+    height: 43px;
+    color: var(--Main, #101828);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.icon2 {
+    margin-bottom: 24px;
+}
+
+.divPalka {
+    width: 527px;
+}
+
 .features {
-    background-color: #f9f9f9;
-    /* Светлый фон для контраста */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin-bottom: 100px;
+    margin-top: 0px;
+    width: 527px;
 }
 
-.features h3 {
-    font-size: 1.5rem;
-    color: #333;
-    /* Темный текст */
-    margin-bottom: 10px;
-}
-
-.features ul {
-    list-style-type: none;
+.detailsList {
+    list-style: none;
     padding: 0;
     margin: 0;
+    width: 527px;
 }
 
-.features li {
-    font-size: 1rem;
-    color: #555;
-    /* Слегка затемненный текст */
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-    /* Разделители между строками */
+.detailItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--Main, #101828);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
-.features li:last-child {
-    border-bottom: none;
-    /* Убираем разделитель у последнего элемента */
+.detailItem:not(last-child) {
+    margin-bottom: 16px;
+}
+
+.detailLabel {
+    color: var(--Main, #101828);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.detailValue {
+    color: var(--Main, #101828);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
 }

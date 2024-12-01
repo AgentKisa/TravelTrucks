@@ -1,21 +1,12 @@
 .header {
     display: flex;
-    /* justify-content: space-between; */
-    /* Распределение между логотипом и навигацией */
     align-items: center;
-    width: 1440px;
-    /* Фиксированная ширина */
     padding: 24px 64px;
-    /* Отступы сверху/снизу и слева/справа */
     background-color: #F7F7F7;
-    /* Цвет фона */
     border-bottom: 1px solid #E5E5E5;
-    /* Нижняя граница */
     box-sizing: border-box;
-    /* Учитывать отступы в ширине */
-    margin: 0 auto;
-
-    /* Центровка хедера */
+    /* margin: 0 auto; */
+    width: 100vw
 }
 
 .logo a {
@@ -25,7 +16,6 @@
     text-decoration: none;
     color: #333333;
     margin-right: 450px;
-    /* Цвет текста логотипа */
 }
 
 .nav {
@@ -41,7 +31,6 @@
 .navList {
     display: flex;
     gap: 32px;
-    /* Расстояние между пунктами меню */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -53,15 +42,12 @@
 .navLink {
     text-decoration: none;
     color: #101828;
-    /* Цвет текста пунктов меню */
     transition: color 0.3s;
 
 }
 
 .active {
     color: red;
-    /* Красный цвет для активной ссылки */
-    /* Опционально для выделения */
 }
 
 .trucks {
@@ -70,9 +56,6 @@
 
 .logoImage {
     width: 150px;
-    /* Ширина логотипа */
     height: auto;
-    /* Сохранение пропорций */
     object-fit: contain;
-    /* Адаптация размера изображения */
 }

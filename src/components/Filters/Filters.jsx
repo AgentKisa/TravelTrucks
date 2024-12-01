@@ -32,10 +32,10 @@ const Filters = () => {
           placeholder="City"
           onChange={(e) => handleFilterChange("location", e.target.value)}
           className={styles.filterInput}
-              />
-               <svg className={styles.icon2} width="16" height="16">
-              <use href="/sprite.svg#icon-map"></use>
-            </svg>
+        />
+        <svg className={styles.icon2} width="16" height="16">
+          <use href="/sprite.svg#icon-Map-2"></use>
+        </svg>
       </div>
       <p className={styles.filter}>Filters</p>
       <div className={styles.filterGroup}>
@@ -200,7 +200,7 @@ const Filters = () => {
                 }
               />
               <svg className={styles.checkboxIcon} width="32" height="32">
-                <use href="/sprite.svg#icon-bi-fully"></use>
+                <use href="/sprite.svg#icon-bi-fulll"></use>
               </svg>
               <p className={styles.checkboxText}>Fully Integrated</p>
             </label>

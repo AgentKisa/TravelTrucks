@@ -6,11 +6,13 @@ import Heder from "./components/Heder/Heder";
 import CamperDetailsPage from "./components/CamperDetailsPage/CamperDetailsPage";
 import Features from "./components/Features/Features";
 import Reviews from "./components/Reviews/Reviews";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
       <Heder />
+      <Toaster />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
