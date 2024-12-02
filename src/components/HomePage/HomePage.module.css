@@ -3,10 +3,9 @@
     justify-content: left;
     align-items: center;
     height: 696px;
-    width: 1440px;
+    width: 100vw;
     background-image: url('/public/img/Picture.png');
-    background-size: cover;
-    background-position: center;
+
 }
 
 .banner {

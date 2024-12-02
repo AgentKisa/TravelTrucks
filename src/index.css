@@ -18,4 +18,6 @@ li {
 
 body,
 html,
-.parent {}
+.parent {
+  margin: 0 auto;
+}
