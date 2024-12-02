@@ -30,7 +30,13 @@ const CamperDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchCamperById(id));
-    navigate("features", { replace: true });
+
+    if (
+      !window.location.pathname.includes("features") &&
+      !window.location.pathname.includes("reviews")
+    ) {
+      navigate("features", { replace: true });
+    }
 
     return () => {
       dispatch(clearCamperDetails());

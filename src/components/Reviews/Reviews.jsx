@@ -3,9 +3,8 @@ import styles from "./Reviews.module.css";
 import { useOutletContext } from "react-router-dom";
 
 const Reviews = () => {
-  const { camper } = useOutletContext(); // Получаем данные через Outlet context
+  const { camper } = useOutletContext();
 
-  // Проверяем, есть ли camper и есть ли у него свойство reviews
   if (!camper || !camper.reviews) {
     return <div>No reviews available.</div>;
   }
